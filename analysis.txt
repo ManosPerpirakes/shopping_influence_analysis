@@ -1,0 +1,59 @@
+Influence of social media to shoppers:
+
+Count of voters by group:
+
+Segment Description
+Female voters    1114
+Male voters      1562
+Name: Count, dtype: int64
+
+Segment Type
+Mobile    2676
+Web          2
+Name: Count, dtype: int64
+
+Segment Description
+Are you? Christian    1113
+Are you? Muslim         21
+Name: Count, dtype: int64
+
+Segment Description
+What's your major? Business/Econ/Finance             159
+What's your major? Comm / marketing                  120
+What's your major? Comp sci                           69
+What's your major? History                            39
+What's your major? Languages                          31
+What's your major? ME/EE/other engineer              219
+What's your major? Political science / philosophy    164
+What's your major? Pre-med                           159
+What's your major? Visual/performing arts             22
+Name: Count, dtype: int64
+
+Percentage of influence:
+
+Segment Description
+Female voters    75.6
+Male voters      56.6
+Name: Percentage, dtype: float64
+
+Segment Type
+Mobile    64.6
+Web        0.0
+Name: Percentage, dtype: float64
+
+Segment Description
+Are you? Christian    65.8
+Are you? Muslim       61.9
+Name: Percentage, dtype: float64
+
+Segment Description
+What's your major? Business/Econ/Finance             59.7
+What's your major? Comm / marketing                  70.8
+What's your major? Comp sci                          59.3
+What's your major? History                           56.4
+What's your major? Languages                         74.1
+What's your major? ME/EE/other engineer              49.9
+What's your major? Political science / philosophy    65.9
+What's your major? Pre-med                           67.9
+What's your major? Visual/performing arts            68.1
+Name: Percentage, dtype: float64
