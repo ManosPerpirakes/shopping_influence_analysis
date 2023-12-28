@@ -11,6 +11,12 @@ df_religion = df[(df["Segment Description"] == "Are you? Christian") | (df["Segm
 df_religion_social = df[((df["Segment Description"] == "Are you? Christian") | (df["Segment Description"] == "Are you? Muslim")) & (df["Answer"] != "None")]
 df_major = df[(df["Segment Description"] == "What's your major? ME/EE/other engineer") | (df["Segment Description"] == "What's your major? Business/Econ/Finance") | (df["Segment Description"] == "What's your major? Pre-med") | (df["Segment Description"] == "What's your major? Comm / marketing") | (df["Segment Description"] == "What's your major? Languages") | (df["Segment Description"] == "What's your major? Visual/performing arts") | (df["Segment Description"] == "What's your major? History") | (df["Segment Description"] == "What's your major? Political science / philosophy") | (df["Segment Description"] == "What's your major? Comp sci")]
 df_major_social = df[((df["Segment Description"] == "What's your major? ME/EE/other engineer") | (df["Segment Description"] == "What's your major? Business/Econ/Finance") | (df["Segment Description"] == "What's your major? Pre-med") | (df["Segment Description"] == "What's your major? Comm / marketing") | (df["Segment Description"] == "What's your major? Languages") | (df["Segment Description"] == "What's your major? Visual/performing arts") | (df["Segment Description"] == "What's your major? History") | (df["Segment Description"] == "What's your major? Political science / philosophy") | (df["Segment Description"] == "What's your major? Comp sci")) & (df["Answer"] != "None")]
+df_school = df[(df["Segment Description"] == "or private school? Private") | (df["Segment Description"] == "or private school? No school") | (df["Segment Description"] == "or private school? Public")]
+df_school_social = df[((df["Segment Description"] == "or private school? Private") | (df["Segment Description"] == "or private school? No school") | (df["Segment Description"] == "or private school? Public")) & (df["Answer"] != "None")]
+df_video_games = df[(df["Segment Description"] == "games a lot? Yes, console mostly") | (df["Segment Description"] == "games a lot? No") | (df["Segment Description"] == "games a lot? Yes, mobile mostly") | (df["Segment Description"] == "games a lot? Yes, PC mostly")]
+df_video_games_social = df[((df["Segment Description"] == "games a lot? Yes, console mostly") | (df["Segment Description"] == "games a lot? No") | (df["Segment Description"] == "games a lot? Yes, mobile mostly") | (df["Segment Description"] == "games a lot? Yes, PC mostly")) & (df["Answer"] != "None")]
+df_political = df[(df["Segment Description"] == "What's your leaning? Liberal 🔷") | (df["Segment Description"] == "What's your leaning? Conservative 🐘") | (df["Segment Description"] == "What's your leaning? In-between")]
+df_political_social = df[((df["Segment Description"] == "What's your leaning? Liberal 🔷") | (df["Segment Description"] == "What's your leaning? Conservative 🐘") | (df["Segment Description"] == "What's your leaning? In-between")) & (df["Answer"] != "None")]
 print("\nInfluence of social media to shoppers:\n")
 exporttxt += "Influence of social media to shoppers:\n\n"
 results_count_gender = df_gender.groupby(by= "Segment Description")["Count"].sum()
@@ -21,6 +27,12 @@ results_count_religion = df_religion.groupby(by = "Segment Description")["Count"
 results_percentage_religion = (df_religion_social.groupby(by = "Segment Description")["Percentage"].sum())*100
 results_count_major = df_major.groupby(by = "Segment Description")["Count"].sum()
 results_percentage_major = (df_major_social.groupby(by = "Segment Description")["Percentage"].sum())*100
+results_count_school = df_school.groupby(by = "Segment Description")["Count"].sum()
+results_percentage_school = (df_school_social.groupby(by = "Segment Description")["Percentage"].sum())*100
+results_count_games = df_video_games.groupby(by = "Segment Description")["Count"].sum()
+results_percentage_games = (df_video_games_social.groupby(by = "Segment Description")["Percentage"].sum())*100
+results_count_political = df_political.groupby(by = "Segment Description")["Count"].sum()
+results_percentage_political = (df_political_social.groupby(by = "Segment Description")["Percentage"].sum())*100
 print("Count of voters by group:\n")
 exporttxt += "Count of voters by group:\n\n"
 print(results_count_gender)
@@ -39,6 +51,18 @@ print(results_count_major)
 exporttxt += str(results_count_major)
 print()
 exporttxt += "\n\n"
+print(results_count_school)
+exporttxt += str(results_count_school)
+print()
+exporttxt += "\n\n"
+print(results_count_games)
+exporttxt += str(results_count_games)
+print()
+exporttxt += "\n\n"
+print(results_count_political)
+exporttxt += str(results_count_political)
+print()
+exporttxt += "\n\n"
 print("Percentage of influence:\n")
 exporttxt += "Percentage of influence:\n\n"
 print(results_percentage_gender)
@@ -55,5 +79,24 @@ print()
 exporttxt += "\n\n"
 print(results_percentage_major)
 exporttxt += str(results_percentage_major)
+print()
+exporttxt += "\n\n"
+print(results_percentage_school)
+exporttxt += str(results_percentage_school)
+print()
+exporttxt += "\n\n"
+print(results_percentage_games)
+exporttxt += str(results_percentage_games)
+print()
+exporttxt += "\n\n"
+print(results_percentage_political)
+exporttxt += str(results_percentage_political)
+exportlst = []
+for i in exporttxt:
+    if not (i == "🔷" or i == "🐘"):
+        exportlst += i
+exporttxt = ""
+for i in exportlst:
+    exporttxt += i
 with open("analysis.txt", "w") as file:
     file.write(exporttxt)

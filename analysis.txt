@@ -29,6 +29,25 @@ What's your major? Pre-med                           159
 What's your major? Visual/performing arts             22
 Name: Count, dtype: int64
 
+Segment Description
+or private school? No school     32
+or private school? Private      362
+or private school? Public       767
+Name: Count, dtype: int64
+
+Segment Description
+games a lot? No                      95
+games a lot? Yes, PC mostly          82
+games a lot? Yes, console mostly    148
+games a lot? Yes, mobile mostly      13
+Name: Count, dtype: int64
+
+Segment Description
+What's your leaning? Conservative     736
+What's your leaning? In-between        672
+What's your leaning? Liberal          834
+Name: Count, dtype: int64
+
 Percentage of influence:
 
 Segment Description
@@ -56,4 +75,23 @@ What's your major? ME/EE/other engineer              49.9
 What's your major? Political science / philosophy    65.9
 What's your major? Pre-med                           67.9
 What's your major? Visual/performing arts            68.1
+Name: Percentage, dtype: float64
+
+Segment Description
+or private school? No school    50.0
+or private school? Private      53.6
+or private school? Public       60.4
+Name: Percentage, dtype: float64
+
+Segment Description
+games a lot? No                     52.6
+games a lot? Yes, PC mostly         36.6
+games a lot? Yes, console mostly    58.8
+games a lot? Yes, mobile mostly     30.8
+Name: Percentage, dtype: float64
+
+Segment Description
+What's your leaning? Conservative     64.2
+What's your leaning? In-between        60.0
+What's your leaning? Liberal          66.0
 Name: Percentage, dtype: float64
