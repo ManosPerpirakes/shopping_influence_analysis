@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("WhatsgoodlyData-6.csv")
 exporttxt = ''
@@ -17,8 +18,6 @@ df_video_games = df[(df["Segment Description"] == "games a lot? Yes, console mos
 df_video_games_social = df[((df["Segment Description"] == "games a lot? Yes, console mostly") | (df["Segment Description"] == "games a lot? No") | (df["Segment Description"] == "games a lot? Yes, mobile mostly") | (df["Segment Description"] == "games a lot? Yes, PC mostly")) & (df["Answer"] != "None")]
 df_political = df[(df["Segment Description"] == "What's your leaning? Liberal 🔷") | (df["Segment Description"] == "What's your leaning? Conservative 🐘") | (df["Segment Description"] == "What's your leaning? In-between")]
 df_political_social = df[((df["Segment Description"] == "What's your leaning? Liberal 🔷") | (df["Segment Description"] == "What's your leaning? Conservative 🐘") | (df["Segment Description"] == "What's your leaning? In-between")) & (df["Answer"] != "None")]
-print("\nInfluence of social media to shoppers:\n")
-exporttxt += "Influence of social media to shoppers:\n\n"
 results_count_gender = df_gender.groupby(by= "Segment Description")["Count"].sum()
 results_percentage_gender = (df_gender_social.groupby(by= "Segment Description")["Percentage"].sum())*100
 results_count_platform = df_platform.groupby(by = "Segment Type")["Count"].sum()
@@ -33,70 +32,3 @@ results_count_games = df_video_games.groupby(by = "Segment Description")["Count"
 results_percentage_games = (df_video_games_social.groupby(by = "Segment Description")["Percentage"].sum())*100
 results_count_political = df_political.groupby(by = "Segment Description")["Count"].sum()
 results_percentage_political = (df_political_social.groupby(by = "Segment Description")["Percentage"].sum())*100
-print("Count of voters by group:\n")
-exporttxt += "Count of voters by group:\n\n"
-print(results_count_gender)
-exporttxt += str(results_count_gender)
-print()
-exporttxt += "\n\n"
-print(results_count_platform)
-exporttxt += str(results_count_platform)
-print()
-exporttxt += "\n\n"
-print(results_count_religion)
-exporttxt += str(results_count_religion)
-print()
-exporttxt += "\n\n"
-print(results_count_major)
-exporttxt += str(results_count_major)
-print()
-exporttxt += "\n\n"
-print(results_count_school)
-exporttxt += str(results_count_school)
-print()
-exporttxt += "\n\n"
-print(results_count_games)
-exporttxt += str(results_count_games)
-print()
-exporttxt += "\n\n"
-print(results_count_political)
-exporttxt += str(results_count_political)
-print()
-exporttxt += "\n\n"
-print("Percentage of influence:\n")
-exporttxt += "Percentage of influence:\n\n"
-print(results_percentage_gender)
-exporttxt += str(results_percentage_gender)
-print()
-exporttxt += "\n\n"
-print(results_percentage_platform)
-exporttxt += str(results_percentage_platform)
-print()
-exporttxt += "\n\n"
-print(results_percentage_religion)
-exporttxt += str(results_percentage_religion)
-print()
-exporttxt += "\n\n"
-print(results_percentage_major)
-exporttxt += str(results_percentage_major)
-print()
-exporttxt += "\n\n"
-print(results_percentage_school)
-exporttxt += str(results_percentage_school)
-print()
-exporttxt += "\n\n"
-print(results_percentage_games)
-exporttxt += str(results_percentage_games)
-print()
-exporttxt += "\n\n"
-print(results_percentage_political)
-exporttxt += str(results_percentage_political)
-exportlst = []
-for i in exporttxt:
-    if not (i == "🔷" or i == "🐘"):
-        exportlst += i
-exporttxt = ""
-for i in exportlst:
-    exporttxt += i
-with open("analysis.txt", "w") as file:
-    file.write(exporttxt)
